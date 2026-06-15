@@ -1,0 +1,45 @@
+# Composite action — alternative to the reusable workflow.
+# Use this if you need more control over your workflow steps.
+# The calling job must set these permissions:
+#
+#   permissions:
+#     contents: read
+#     pages: write
+#     id-token: write
+#
+#   - uses: anishhs-gh/restyles@v1
+#     with:
+#       github_token: ${{ secrets.GITHUB_TOKEN }}
+#
+name: ReStyles
+description: Build and deploy a ReStyles documentation site to GitHub Pages
+author: anishhs-gh
+
+branding:
+  icon: book-open
+  color: indigo
+
+inputs:
+  node-version:
+    description: Node.js version
+    required: false
+    default: '20'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Build ReStyles site
+      shell: bash
+      run: npx github:anishhs-gh/restyles build
+
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./_site
+
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4

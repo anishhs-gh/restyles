@@ -1,0 +1,23 @@
+{
+  "theme": "lumina",
+  "title": "ReStyles",
+  "description": "Modern themes for GitHub Pages",
+  "color": "indigo",
+  "darkMode": "auto",
+  "root": "README.md",
+  "logo": "/public/assets/restyles-48.png",
+  "favicon": "/public/assets/restyles-48.png",
+  "hero": {
+    "title": "ReStyles",
+    "description": "Modern, beautiful themes for GitHub Pages — no Jekyll required. Drop a config file, pick a theme, go live.",
+    "githubUrl": "https://github.com/anishhs-gh/restyles",
+    "downloadUrl": "https://github.com/anishhs-gh/restyles/archive/refs/heads/main.zip"
+  },
+  "nav": [
+    { "label": "Home",            "file": "README.md" },
+    { "label": "Getting Started", "file": "docs/getting-started.md" },
+    { "label": "Configuration",   "file": "docs/configuration.md" },
+    { "label": "Themes",          "file": "docs/themes.md" },
+    { "label": "GitHub", "url": "https://github.com/anishhs-gh/restyles", "external": true }
+  ]
+}
